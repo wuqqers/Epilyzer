@@ -1,0 +1,126 @@
+warning: unused import: `super::*`
+ --> core/src/epilepsy_tests.rs:3:9
+  |
+3 | ...se super::*;
+  |       ^^^^^^^^
+  |
+  = note: `#[warn(unused_imports)]` (part of `#[warn(unused)]`) on by default
+
+warning: unused imports: `TimeZone` and `Timelike`
+ --> core/src/debug_test.rs:5:18
+  |
+5 | ...::{TimeZone, Utc, Timelike};
+  |       ^^^^^^^^       ^^^^^^^^
+
+warning: `core` (lib test) generated 2 warnings (run `cargo fix --lib -p core --tests` to apply 2 suggestions)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 0.09s
+     Running unittests src/lib.rs (target/debug/deps/core-ebe7f9c36b760a9a)
+
+running 7 tests
+test debug_test::tests::test_circadian_outputs ... ok
+test epilepsy_tests::tests::test_emergency_stop ... ok
+test epilepsy_tests::tests::test_initialization ... ok
+test epilepsy_tests::tests::test_step_limit ... ok
+test epilepsy_tests::tests::test_transition_duration ... ok
+test epilepsy_tests::tests::test_transition_update ... ok
+test epilepsy_tests::tests::test_frequency_limit ... ok
+
+test result: ok. 7 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.35s
+
+   Doc-tests core
+error[E0433]: failed to resolve: could not find `write` in `core`
+ --> core/src/hardware.rs:7:10
+  |
+7 | ...ve(Error, D...
+  |       ^^^^^ could not find `write` in `core`
+  |
+  = note: this error originates in the derive macro `Error` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0433]: failed to resolve: could not find `write` in `core`
+ --> core/src/config.rs:7:10
+  |
+7 | ...ve(Error, D...
+  |       ^^^^^ could not find `write` in `core`
+  |
+  = note: this error originates in the derive macro `Error` (in Nightly builds, run with -Z macro-backtrace for more info)
+
+error[E0433]: failed to resolve: could not find `option` in `core`
+ --> core/src/hardware.rs:7:10
+  |
+7 | ...ve(Error, D...
+  |       ^^^^^ could not find `option` in `core`
+  |
+  = note: this error originates in the derive macro `Error` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider importing this module
+  |
+1 + use std::option;
+  |
+
+error[E0433]: failed to resolve: could not find `fmt` in `core`
+ --> core/src/hardware.rs:7:10
+  |
+7 | ...ve(Error, D...
+  |       ^^^^^ could not find `fmt` in `core`
+  |
+  = note: this error originates in the derive macro `Error` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider importing this module
+  |
+1 + use std::fmt;
+  |
+
+error[E0433]: failed to resolve: could not find `convert` in `core`
+ --> core/src/hardware.rs:7:10
+  |
+7 | ...ve(Error, D...
+  |       ^^^^^ could not find `convert` in `core`
+  |
+  = note: this error originates in the derive macro `Error` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider importing this module
+  |
+1 + use std::convert;
+  |
+
+error[E0433]: failed to resolve: could not find `option` in `core`
+ --> core/src/config.rs:7:10
+  |
+7 | ...ve(Error, D...
+  |       ^^^^^ could not find `option` in `core`
+  |
+  = note: this error originates in the derive macro `Error` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider importing this module
+  |
+1 + use std::option;
+  |
+
+error[E0433]: failed to resolve: could not find `fmt` in `core`
+ --> core/src/config.rs:7:10
+  |
+7 | ...ve(Error, D...
+  |       ^^^^^ could not find `fmt` in `core`
+  |
+  = note: this error originates in the derive macro `Error` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider importing this module
+  |
+1 + use std::fmt;
+  |
+
+error[E0433]: failed to resolve: could not find `convert` in `core`
+ --> core/src/config.rs:7:10
+  |
+7 | ...ve(Error, D...
+  |       ^^^^^ could not find `convert` in `core`
+  |
+  = note: this error originates in the derive macro `Error` (in Nightly builds, run with -Z macro-backtrace for more info)
+help: consider importing this module
+  |
+1 + use std::convert;
+  |
+
+error: aborting due to 8 previous errors
+
+For more information about this error, try `rustc --explain E0433`.
+error: doctest failed, to rerun pass `-p core --doc`
+
+Caused by:
+  process didn't exit successfully: `rustdoc --edition=2021 --crate-type lib --color auto --crate-name core --test core/src/lib.rs --test-run-directory /home/wuqqers/AutoBrightness/core -L dependency=/home/wuqqers/AutoBrightness/target/debug/deps -L dependency=/home/wuqqers/AutoBrightness/target/debug/deps --extern chrono=/home/wuqqers/AutoBrightness/target/debug/deps/libchrono-194d7671fcfded95.rlib --extern core=/home/wuqqers/AutoBrightness/target/debug/deps/libcore-d9c53d63e8425e27.rlib --extern serde=/home/wuqqers/AutoBrightness/target/debug/deps/libserde-0dc85c8d440fcafb.rlib --extern thiserror=/home/wuqqers/AutoBrightness/target/debug/deps/libthiserror-a45d0690f33e946e.rlib --extern tokio=/home/wuqqers/AutoBrightness/target/debug/deps/libtokio-2ea52fe73508df06.rlib --extern toml=/home/wuqqers/AutoBrightness/target/debug/deps/libtoml-978fcb8e73cabc4f.rlib --extern tracing=/home/wuqqers/AutoBrightness/target/debug/deps/libtracing-203576bcb5ba2961.rlib --extern zbus=/home/wuqqers/AutoBrightness/target/debug/deps/libzbus-1cab96636b466691.rlib -C embed-bitcode=no --check-cfg 'cfg(docsrs,test)' --check-cfg 'cfg(feature, values())' --error-format human` (exit status: 1)
+note: test exited abnormally; to see the full output pass --no-capture to the harness.

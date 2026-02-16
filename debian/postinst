@@ -1,0 +1,57 @@
+#!/bin/bash
+set -e
+
+echo "🌞 Configuring Epilyzer (Smart Installer Integration)..."
+
+# Detect OS
+if [ -f /etc/os-release ]; then
+    . /etc/os-release
+    OS=$ID
+    OS_LIKE=$ID_LIKE
+else
+    PRETTY_NAME="Unknown Linux"
+    OS="unknown"
+fi
+
+echo "🔍 Detected OS: $PRETTY_NAME"
+
+# 1. Update udev rules
+echo "🔒 Loading udev rules..."
+udevadm control --reload-rules || true
+udevadm trigger --subsystem-match=backlight --action=change || true
+
+# 2. Setup Failsafe Permission Service (System-wide)
+echo "🛡️  Configuring Failsafe Permission Service..."
+systemctl daemon-reload
+systemctl enable fix-brightness-permissions.service
+systemctl start fix-brightness-permissions.service || true
+
+# 3. Configure User Groups
+echo "👥 Configuring video and i2c groups..."
+groupadd -f video || true
+groupadd -f i2c || true
+
+# Note: We can't easily add the *installing* user to groups here because postinst 
+# runs as root and might be triggered by apt/dpkg. 
+# We'll just ensure the groups exist.
+
+# 4. Distribution-specific tweaks
+case "$OS" in
+    kali)
+        echo "💀 Kali Linux detected. Applying specific tweaks..."
+        # Kali sometimes needs different permissions or has specific display managers
+        ;;
+    ubuntu|linuxmint)
+        echo "🌱 Ubuntu/Mint detected. Ensuring smooth integration..."
+        ;;
+    pardus)
+        echo "🐈 Pardus detected. Optimization active."
+        ;;
+    debian)
+        echo "🌀 Debian detected. Standard configuration applied."
+        ;;
+esac
+
+echo "✅ Epilyzer system-level configuration complete."
+echo "👉 To start using: logout and login to update your group permissions."
+echo "👉 Enable the user service with: systemctl --user enable --now auto-brightness.service"

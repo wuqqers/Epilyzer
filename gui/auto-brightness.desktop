@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=Auto Brightness
+Comment=Epilepsy-safe brightness control
+Exec=auto-brightness-gui
+Icon=display-brightness-symbolic
+Terminal=false
+Type=Application
+Categories=Utility;Settings;HardwareSettings;
+Keywords=brightness;screen;display;monitor;epilepsy;
+StartupNotify=true

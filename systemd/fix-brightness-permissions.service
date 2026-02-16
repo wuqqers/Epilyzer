@@ -1,0 +1,11 @@
+[Unit]
+Description=Fix Brightness Permissions (Failsafe)
+After=systemd-udev-settle.service
+
+[Service]
+Type=oneshot
+ExecStart=/bin/bash -c 'chgrp -f video /sys/class/backlight/*/brightness || true; chmod -f 664 /sys/class/backlight/*/brightness || true'
+RemainAfterExit=yes
+
+[Install]
+WantedBy=multi-user.target

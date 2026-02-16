@@ -1,0 +1,6 @@
+#!/bin/bash
+set -e
+
+# Stop and disable the system-wide permission service
+systemctl stop fix-brightness-permissions.service || true
+systemctl disable fix-brightness-permissions.service || true

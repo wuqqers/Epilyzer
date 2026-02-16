@@ -1,0 +1,20 @@
+# Rust build artifacts
+target/
+
+# Generated Debian packages
+*.deb
+debian/epilyzer/
+debian/.debhelper/
+debian/debhelper-build-stamp
+debian/files
+debian/epilyzer.debhelper.log
+debian/epilyzer.substvars
+
+# IDEs and local configs
+.vscode/
+.idea/
+*.swp
+*~
+
+# Project specific
+test_output.txt

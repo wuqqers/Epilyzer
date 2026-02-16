@@ -1,0 +1,36 @@
+<svg width="512" height="512" viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4a90e2;stop-opacity:1" />
+      <stop offset="100%" style="stop-color:#003f7f;stop-opacity:1" />
+    </linearGradient>
+    <filter id="f1" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="4" stdDeviation="4" flood-opacity="0.3"/>
+    </filter>
+  </defs>
+  
+  <!-- Background Container (Squircle) -->
+  <rect x="32" y="32" width="448" height="448" rx="100" ry="100" fill="url(#g1)" filter="url(#f1)" />
+  
+  <!-- Sun Rays -->
+  <g transform="translate(256, 256)" stroke="white" stroke-width="24" stroke-linecap="round">
+    <line x1="0" y1="-140" x2="0" y2="-100" />
+    <line x1="0" y1="140" x2="0" y2="100" />
+    <line x1="-140" y1="0" x2="-100" y2="0" />
+    <line x1="140" y1="0" x2="100" y2="0" />
+    
+    <line x1="-100" y1="-100" x2="-70" y2="-70" />
+    <line x1="100" y1="-100" x2="70" y2="-70" />
+    <line x1="-100" y1="100" x2="-70" y2="70" />
+    <line x1="100" y1="100" x2="70" y2="70" />
+  </g>
+  
+  <!-- Central Shield (Protection) -->
+  <path d="M256 340 C256 340, 160 290, 160 190 L160 140 L256 100 L352 140 L352 190 C352 290, 256 340, 256 340 Z" 
+        fill="white" stroke="none" opacity="0.9" />
+        
+  <!-- Inner Medical Cross / Safety Symbol -->
+  <rect x="236" y="160" width="40" height="120" rx="4" fill="#4a90e2" />
+  <rect x="196" y="200" width="120" height="40" rx="4" fill="#4a90e2" />
+
+</svg>

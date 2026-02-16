@@ -1,0 +1,2 @@
+SUBSYSTEM=="backlight", ACTION=="add|change", GROUP="video", MODE="0664"
+SUBSYSTEM=="i2c-dev", GROUP="i2c", MODE="0660"
